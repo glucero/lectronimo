@@ -1,0 +1,17 @@
+.DS_Store
+.repl_history
+build
+tags
+resources/*.nib
+resources/*.momd
+resources/*.storyboardc
+.dat*
+*.o
+*.a
+*.xcodeproj
+#*#
+*~
+*.sw[po]
+.eprj
+*.mobileprovision
+*.cer
