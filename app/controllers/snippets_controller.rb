@@ -89,7 +89,7 @@ class SnippetsController < UITableViewController
 
       self.performSegueWithIdentifier("Edit Snippet", sender: self)
     else
-      Popup.initWithMessage("Executing #{snippet.title}", title: "Loading Snippet")
+      Popup.initWithMessage(snippet.title, title: "Executing Snippet")
 
       App.lectronimo.run snippet.content
     end
