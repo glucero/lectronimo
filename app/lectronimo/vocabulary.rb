@@ -42,6 +42,11 @@ module Vocabulary
       :examples    => ['HEADING X'],
       :description => "Change heading to X degrees." },
 
+    { :name        => :face,
+      :arg         => 1,
+      :examples    => ['FACE [ X Y ]'],
+      :description => "Change heading to face coordinate X, Y." },
+
     { :name        => :show,
       :arg         => 0,
       :examples    => ["SHOW"],

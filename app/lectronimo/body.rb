@@ -4,16 +4,16 @@ module Body
     @location ||= App.center
   end
 
-  def visibile
-    @visibile
+  def visible?
+    @visible
   end
 
   def show
-    @visibile = true
+    @visible = true
   end
 
   def hide
-    @visibile = false
+    @visible = false
   end
 
   def home
@@ -53,12 +53,19 @@ module Body
   end
 
   def destination(steps)
-    coordinates  = { :sin => location.x, :cos => location.y }
-    coordinates.map do |function, coordinate|
-      radians    = (@heading - 180) * degree # flip heading 180°
-      offset     = steps * send(function, radians)
-      coordinate + offset
+    { :sin => location.x,
+      :cos => location.y }.map do |function, location|
+      radians  = (@heading - 180) * degree # flip heading 180°
+      offset   = steps * send(function, radians)
+      location + offset
     end
+  end
+
+  def face(coordinate)
+    x = coordinate.first - @location.x
+    y = coordinate.last - @location.y
+
+    @heading = Math.atan2(-x, y) / degree
   end
 
   def goto(coordinate)
@@ -70,22 +77,17 @@ module Body
     multiple(values).each { |steps| goto destination(+steps) }
   end
 
-  def back(steps)
+  def back(values)
     multiple(values).each { |steps| goto destination(-steps) }
   end
 
   def xy(coordinate)
+    # coordinate (0, 0) is the lower left corner of the screen
     @penstatus = @penstatus.tap do
       penup
-      goto coordinate
+
+      goto [coordinate.first, App.size.height - coordinate.last]
     end
-  end
-
-  def face(coordinate)
-    x = coordinate.first - @location.x
-    y = coordinate.last - @location.y
-
-    @heading = Math.atan2(x, y) / degree
   end
 
 end

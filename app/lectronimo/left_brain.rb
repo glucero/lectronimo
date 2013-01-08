@@ -97,8 +97,8 @@ module LeftBrain
   def make(variable, value)
     value = evaluate(value)
 
-    Vocabulary::Commands.reject! { |c| c[:name].eql? variable }
-    Vocabulary::Commands.push({
+    @binding.reject! { |c| c[:name].eql? variable }
+    @binding.push({
       :name => variable,
       :arg  => 0,
       :call => ->(*call) { value }
@@ -109,19 +109,23 @@ module LeftBrain
     iterations = evaluate(iterations).to_i
 
     iterations.times do
-      execute Marshal.load(Marshal.dump(commands))
+      Marshal.load(Marshal.dump(commands)).tap do |commands|
+        execute commands
+      end
     end
   end
 
   def command(command, variables, commands)
-    Vocabulary::Commands.reject! { |c| c[:name].eql? command }
-    Vocabulary::Commands.push({
-      :name     => command,
-      :arg      => variables.count,
-      :call     => ->(*arguments) do
-        function = Marshal.load(Marshal.dump(commands))
-
-        execute function.map { |command| substitute(command, variables, arguments) }
+    @binding.reject! { |c| c[:name].eql? command }
+    @binding.push({
+      :name => command,
+      :arg  => variables.count,
+      :call => ->(*arguments) do
+        Marshal.load(Marshal.dump(commands)).tap do |commands|
+          commands.map { |c| substitute(c, variables, arguments) }.tap do |commands|
+            execute commands
+          end
+        end
       end
     })
   end

@@ -17,7 +17,7 @@ module RightBrain
       path = UIBezierPath.alloc.init
       path.lineWidth = @pensize
 
-      @paths << { :color => current_pen_color, :line => path }
+      @paths.push({ :color => current_pencolor, :line  => path })
     end
 
     path_to origin
@@ -36,7 +36,7 @@ module RightBrain
     @paths.clear
   end
 
-  def current_pen_color
+  def current_pencolor
     UIColor.alloc.initWithRed(@pencolor[:red].to_f / 255,
                               green:@pencolor[:green].to_f / 255,
                               blue:@pencolor[:blue].to_f / 255,

@@ -8,24 +8,27 @@ class Lectronimo
   include RightBrain
 
   def initialize
-    @paths = Array.new
+    @paths   = Array.new
+    @binding = Array.new # user created commands and variable container
 
-    # create the built-in command function calls
-    Commands.each { |c| c[:call] = ->(*call) { self.send(c[:name], *call) } }
+    Commands.each do |command|
+      command[:call] = ->(*call) do
+        send(command[:name], *call)
+      end
+    end
 
-    # set the default state
-    @pencolor = Colors[:black]
-    @pensize  = 1.0
-    @heading  = 0.0
-    @visibile = true
-
+    # set lectronimo's defaults
     start_path App.center
-
-    pendown # ready for instructions!
+    pencolor :black
+    pensize 1.0
+    heading 0.0
+    pendown
+    show
   end
 
   def lookup(symbol)
-    Commands.find { |c| c[:name].eql?(symbol) || c[:alias].eql?(symbol) }
+    Commands.find { |c| c[:name].eql?(symbol) || c[:alias].eql?(symbol) } or
+    @binding.find { |c| c[:name].eql?(symbol) }
   end
 
   def run(snippet)
@@ -66,7 +69,6 @@ class Lectronimo
     token = nested(commands)
 
     if function = lookup(token)
-      # arguments = if function[:evaluate]
       arguments = if function[:store]
                     function[:arg].times.map do
                       nested(commands)

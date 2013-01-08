@@ -57,7 +57,7 @@ class CanvasController < UIViewController
     # run the commands
     App.lectronimo.run sender.text
 
-    if App.lectronimo.visibile
+    if App.lectronimo.visible?
       icon.hidden = false
 
       # move icon to new location
