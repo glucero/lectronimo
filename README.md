@@ -17,23 +17,22 @@
 
   lectronimo will be available on the App Store soon!
 
-
 ### detailed usage instructions are built into the compiled iOS app
 
 ### available commands
 
     (aliases for these commands are listed in the app's help files)
 
-    forward reset    absolute   arctangent repeat
-    back    clear    power      logarithm  command
-    right   penup    modulo     hypotenuse same
-    left    pendown  squareroot pi         different
-    goto    pensize  cuberoot   phi        more
-    xy      pencolor sine       euler      if
-    heading add      cosine     degree     ifelse
-    show    subtract tangent    radian     randompencolor
-    hide    multiply arcsine    random
-    home    divide   arccosine  make
+    forward reset          divide     arccosine  make
+    back    clear          absolute   arctangent repeat
+    right   penup          power      logarithm  command
+    left    pendown        modulo     hypotenuse same
+    goto    pensize        squareroot pi         different
+    xy      pencolor       cuberoot   phi        more
+    heading randompencolor sine       euler      if
+    show    add            cosine     degree     ifelse
+    hide    subtract       tangent    radian
+    home    multiply       arcsine    random
 
 ### lectronimo's programming language is based on LOGO (a LISP-like language without the parentheses):
 
@@ -42,6 +41,7 @@
     forward 100
     add [ 5 3 ]
     pencolor blue
+    right multiply [ 10 90 ]
 
   multiple expressions are allowed on the same line
 
@@ -67,49 +67,26 @@ using the newly created polygon command:
 
 creating a pythagoras tree:
 
-    make angle divide [ arcsine divide [ 3 5 ] degree ]
-
-    command square [ size ] [
-        repeat 4 [ forward size left 90 ]
-    ]
-
-    command subdivide [ ratio size ] [
-        multiply [ ratio divide [ size 5 ] ]
-    ]
-
-    command pythagorean-triangle [ size ] [
-        right angle forward subdivide 3 size
-        right 90 forward subdivide 4 size
-        left angle back size left 90
-    ]
-
-    command tree-or-square [ ratio size ] [
-        ifelse [ more [ size 3 ] ]
-            [ pythagoras-tree subdivide ratio size ]
-            [ square subdivide ratio size ]
-    ]
-
-    command starting-position [ size ] [
-        if [ same [ size 100 ] ]
-            [ penup left 90 forward 150 right 90 back 150 pendown ]
-    ]
-
     command pythagoras-tree [ size ] [
-        starting-position size
-        square size
+        repeat 4 [ forward size left 90 ]
         forward size left 90 forward size right 90
-        pythagorean-triangle size
-        right angle forward subdivide 3 size left 90
-        tree-or-square 3 size
-        back subdivide 4 size right 90
-        tree-or-square 4 size
-        left angle back size
+        right divide [ arcsine divide [ 3 5 ] degree ]
+        forward multiply [ 3 divide [ size 5 ] ] right 90
+        forward multiply [ 4 divide [ size 5 ] ]
+        left divide [ arcsine divide [ 3 5 ] degree ] back size left 90
+        right divide [ arcsine divide [ 3 5 ] degree ]
+        forward multiply [ 3 divide [ size 5 ] ] left 90
+        ifelse [ more [ size 3 ] ]
+            [ pythagoras-tree multiply [ 3 divide [ size 5 ] ] ]
+            [ repeat 4 [ forward multiply [ 3 divide [ size 5 ] ] left 90 ] ]
+        back multiply [ 4 divide [ size 5 ] ] right 90
+        ifelse [ more [ size 3 ] ]
+            [ pythagoras-tree multiply [ 4 divide [ size 5 ] ] ]
+            [ repeat 4 [ forward multiply [ 4 divide [ size 5 ] ] left 90 ] ]
+        left divide [ arcsine divide [ 3 5 ] degree ] back size
     ]
-
 
 using the new pythagoras-tree command:
-
-    pythagoras-tree 100
 
 ![pythagoras-tree](https://raw.github.com/glucero/lectronimo/master/assets/pythagoras-tree.png)
 
@@ -117,5 +94,7 @@ using the new pythagoras-tree command:
 
 ### Copyright (C) 2013 Gino Lucero
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+This work is licensed under
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
 
