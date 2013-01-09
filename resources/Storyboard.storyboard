@@ -1250,7 +1250,7 @@ The following example will draw a dotted line.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="541"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="1v3-9k-2IP">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="1v3-9k-2IP">
                                         <rect key="frame" x="20" y="20" width="278" height="224"/>
                                         <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">Remember last year when everyone called you "Stinky"? Once they decided they were going to call you "Stinky", everytime someone mentioned your new nickname everyone knew they were actually talking about you. It really saved everyone a lot of time.
@@ -1399,7 +1399,7 @@ The MAKE command needs two things from you: a name and a target. Easy peasy.</st
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="TSx-j8-vyT">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="TSx-j8-vyT">
                                         <rect key="frame" x="20" y="132" width="280" height="151"/>
                                         <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">That was easy! Okay, smarty pants... so what happens if we want to draw 100 squares? Well, you could type that out 100 times or you could work smarter, not harder!
@@ -1411,14 +1411,14 @@ The REPEAT command needs two things from you: the number of times you want Lectr
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="REPEAT 4 [ FORWARD 100 RIGHT 90 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="otw-qx-aQq">
                                         <rect key="frame" x="43" y="316" width="228" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="REPEAT 360 [ FORWARD 1 RIGHT 1 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gnJ-dq-1nJ">
                                         <rect key="frame" x="43" y="368" width="228" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1429,7 +1429,7 @@ The REPEAT command needs two things from you: the number of times you want Lectr
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Let's make a square. We're going to need 4 sides (let's make them 100 units long) and 4 corners (90 degrees wide)." id="Ij2-vp-Iu1">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Let's make a square. We're going to need 4 sides (let's make them 100 units long) and 4 corners (90 degrees wide)." id="Ij2-vp-Iu1">
                                         <rect key="frame" x="20" y="20" width="280" height="57"/>
                                         <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1484,82 +1484,137 @@ The REPEAT command needs two things from you: the number of times you want Lectr
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="7BI-uW-zui">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="684"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="LqJ-PU-b73">
-                                        <rect key="frame" x="20" y="20" width="280" height="76"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="Pet-sQ-GfA">
+                                        <rect key="frame" x="20" y="20" width="280" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">The MORE, LESS, SAME and DIFFERENT commands compare a box of two numbers. Lectronimo will look in the box and answer with a YES or a NO.</string>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">The MORE, LESS, SAME and DIFFERENT commands compare a box of two numbers. Lectronimo will look in the box, compare the first number with the second number, and answer with a YES or a NO.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c1f-lF-xEc">
-                                        <rect key="frame" x="20" y="199" width="280" height="105"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="1PU-9t-nDp">
+                                        <rect key="frame" x="20" y="206" width="280" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">Why is this important? Who cares what Lectronimo thinks? You can have Lectronimo execute commands based on these answers. The IF and IFELSE commands will execute a box of commands depending on whether Lectronimo answers YES or NO to the above commands.</string>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">Why is this important? You can have Lectronimo execute commands based on these answers. The IF command will execute a box of commands depending on whether Lectronimo answers YES to a comparison command.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lectronimo will move forward 100 units with this command." id="cAT-m8-4tX">
-                                        <rect key="frame" x="20" y="350" width="280" height="46"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="N5W-mw-0lS">
+                                        <rect key="frame" x="20" y="425" width="280" height="76"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">The IFELSE command works just like the IF command, but requires a 3rd box of commands for Lectronimo to execute if Lectronimo answers NO to the comparison command.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IF [ MORE [ 4 3 ] ] [ FORWARD 100 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L3l-CX-iza">
-                                        <rect key="frame" x="55" y="313" width="210" height="29"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IF [ MORE [ 4 3 ] ] [ FORWARD 100 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yom-Tx-x9f">
+                                        <rect key="frame" x="49" y="297" width="210" height="24"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result: Lectronimo moves forward 100 units." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fSL-zS-3p4">
+                                        <rect key="frame" x="30" y="329" width="249" height="24"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MORE [ 3 4 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bJe-Zg-Bo8">
-                                        <rect key="frame" x="52" y="104" width="82" height="22"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result: Lectronimo does nothing." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aMf-re-4vA">
+                                        <rect key="frame" x="30" y="393" width="249" height="24"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="NO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fHu-pQ-3oT">
-                                        <rect key="frame" x="186" y="104" width="82" height="22"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result: Lectronimo moves forward 100 units." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Iav-za-fOC">
+                                        <rect key="frame" x="30" y="540" width="249" height="24"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LESS [ 1 9 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fWp-oV-lF2">
-                                        <rect key="frame" x="52" y="134" width="82" height="22"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result: Lectronimo changes the pencolor to red." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x8W-yE-Tyb">
+                                        <rect key="frame" x="22" y="614" width="265" height="24"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rvJ-TT-AWi">
-                                        <rect key="frame" x="186" y="134" width="82" height="22"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MORE [ 3 4 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J6Q-jr-sJo">
+                                        <rect key="frame" x="49" y="116" width="82" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SAME [ 4 4 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o1S-F1-xfJ">
-                                        <rect key="frame" x="52" y="164" width="82" height="22"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="NO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6G2-1E-Kpv">
+                                        <rect key="frame" x="183" y="116" width="82" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8ZE-J9-aNT">
-                                        <rect key="frame" x="186" y="164" width="82" height="22"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LESS [ 1 9 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F7t-Nf-EFZ">
+                                        <rect key="frame" x="49" y="146" width="82" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cQh-WV-SMf">
+                                        <rect key="frame" x="183" y="146" width="82" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SAME [ 4 4 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eHW-TY-cvE">
+                                        <rect key="frame" x="49" y="176" width="82" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FvB-Ck-0vH">
+                                        <rect key="frame" x="183" y="176" width="82" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IF [ DIFFERENT [ 8 8 ] ] [ RIGHT 100 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lh3-Bi-FjE">
+                                        <rect key="frame" x="49" y="361" width="210" height="24"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IFELSE [ MORE [ 4 3 ] ] [ FORWARD 100 ] [ BACKWARD 100 ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Gi-2o-EFc">
+                                        <rect key="frame" x="39" y="503" width="231" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IFELSE [ SAME [ 2 5 ] ] [ PENCOLOR BLUE ] [ PENCOLOR RED ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7zX-iY-DHG">
+                                        <rect key="frame" x="39" y="572" width="231" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                        <size key="value" width="320" height="950"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1568,7 +1623,7 @@ The REPEAT command needs two things from you: the number of times you want Lectr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fyk-XV-e9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297" y="2690"/>
+            <point key="canvasLocation" x="1261" y="2690"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ahu-oH-w50">
@@ -1579,17 +1634,72 @@ The REPEAT command needs two things from you: the number of times you want Lectr
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="aNR-oG-qLA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="535"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="explanation of function creation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZjY-3v-1E3">
-                                        <rect key="frame" x="44" y="181" width="232" height="54"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="XPl-3P-LLm">
+                                        <rect key="frame" x="20" y="20" width="280" height="256"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <mutableString key="text">The COMMAND command is used to create your own commands. It's basically like the MAKE command but assigns a box of commands instead of values to a name.
+
+The COMMAND command requires two things:
+  1. a box of arguments that it uses for variables. (if your command has no arguments, you must give it an empty box)
+  2. a box of commands to execute.
+
+Let's make a square command! Every square needs 2 things: 4 identical sides and 4 identical angles. The only difference one square has from another is the length of the sides. We'll call that number "SIZE".</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="COMMAND SQUARE [ SIZE ] [ REPEAT 4 [ FORWARD SIZE RIGHT 90 ] ]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aoI-gw-VGq">
+                                        <rect key="frame" x="20" y="279" width="280" height="39"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SQUARE 100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vkj-LR-gFK">
+                                        <rect key="frame" x="116" y="352" width="88" height="23"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Using the new SQUARE command:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pgf-TX-T7q">
+                                        <rect key="frame" x="36" y="326" width="249" height="24"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result: Lectronimo draws a square with each side 100 units long." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hmq-Yq-rYG">
+                                        <rect key="frame" x="36" y="377" width="249" height="34"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SQUARE 200" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iL9-FZ-SRH">
+                                        <rect key="frame" x="116" y="414" width="88" height="23"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result: Lectronimo draws a square with each side 200 units long." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="duO-XN-7x1">
+                                        <rect key="frame" x="36" y="437" width="249" height="34"/>
+                                        <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                        <size key="value" width="320" height="675"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1957,7 +2067,9 @@ Because of this, I've removed the BITE and POOP commands... just in case.</strin
         <class className="EditSnippetController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditSnippetController.h"/>
             <relationships>
+                <relationship kind="action" name="canBecomeFirstResponder"/>
                 <relationship kind="action" name="save:"/>
+                <relationship kind="action" name="shouldAutorotateToInterfaceOrientation:"/>
                 <relationship kind="action" name="viewDidLoad"/>
                 <relationship kind="action" name="viewDidUnload"/>
                 <relationship kind="outlet" name="content" candidateClass="UITextView"/>
@@ -1988,7 +2100,9 @@ Because of this, I've removed the BITE and POOP commands... just in case.</strin
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnippetsController.h"/>
             <relationships>
                 <relationship kind="action" name="canBecomeFirstResponder"/>
+                <relationship kind="action" name="canvasController"/>
                 <relationship kind="action" name="save:"/>
+                <relationship kind="action" name="tableCell:"/>
                 <relationship kind="action" name="viewDidLoad"/>
                 <relationship kind="action" name="viewWillAppear:"/>
                 <relationship kind="outlet" name="snippets" candidateClass="UITableView"/>

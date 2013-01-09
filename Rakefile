@@ -21,6 +21,10 @@ Motion::Project::App.setup do |app|
   app.identifier = 'com.glucero.Lectronimo'
   app.provisioning_profile = 'Lectronimo_Dev.mobileprovision'
 
+  app.icons = ['icon_iphone.png', 'icon_iphone_retina.png']
+  app.prerendered_icon = true
+  app.device_family = [:iphone]
+
   # app.deployment_target = '5.1' # change iOS version support
 
 end
