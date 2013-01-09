@@ -1,5 +1,7 @@
 class SnippetsController < UITableViewController
 
+  Cell = 'Snippet Cell'
+
   extend IB
 
   outlet :snippets, UITableView
@@ -12,18 +14,20 @@ class SnippetsController < UITableViewController
     Snippet.all._count + (@editing ? 1 : 0)
   end
 
+  def tableCell(tableView)
+    tableView.dequeueReusableCellWithIdentifier(Cell) or
+    UITableViewCell.alloc.initWithStyle(UITableViewCelStyleDefault, resuseIdentifier: Cell)
+  end
+
   def tableView(tableView, cellForRowAtIndexPath: indexPath)
-    cell = tableView.dequeueReusableCellWithIdentifier('Snippet Cell')
-    cell ||= UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier: 'Snippet Cell')
-
-    if indexPath.row.eql? Snippet.all._count
-      cell.showsReorderControl = false # this doesn't seem to do anything
-      cell.textLabel.text = "Add New Snippet"
-    else
-      cell.textLabel.text = Snippet.locate(indexPath.row).title
+    tableCell(tableView).tap do |cell|
+      if indexPath.row.eql? Snippet.all._count
+        cell.showsReorderControl = false
+        cell.textLabel.text = 'Add New Snippet'
+      else
+        cell.textLabel.text = Snippet.locate(indexPath.row).title
+      end
     end
-
-    cell
   end
 
   def tableView(tableView, editingStyleForRowAtIndexPath: indexPath)
@@ -46,9 +50,7 @@ class SnippetsController < UITableViewController
     snippets.insert(toIndexPath.row, moving.first)
     snippets.each_with_index { |s, i| s.snippet_id = i }
 
-    MotionData::Context.main.save Pointer.new(:object)
-    MotionData::Context.current.saveChanges
-    MotionData::Context.root.saveChanges
+    Snippet.save
   end
 
   def tableView(tableView, canMoveRowAtIndexPath: indexPath)
@@ -61,15 +63,9 @@ class SnippetsController < UITableViewController
 
   def tableView(tableView, commitEditingStyle: editingStyle, forRowAtIndexPath: indexPath)
     if editingStyle.eql? UITableViewCellEditingStyleDelete
-
-      MotionData::Context.main.deleteObject Snippet.locate(indexPath.row)
-
-      MotionData::Context.main.save Pointer.new(:object)
-      MotionData::Context.current.saveChanges
-      MotionData::Context.root.saveChanges
+      Snippet.delete Snippet.locate(indexPath.row)
 
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimationTop)
-
     elsif editingStyle.eql? UITableViewCellEditingStyleInsert
       @selected_snippet = Snippet.locate(indexPath.row)
 
@@ -93,7 +89,13 @@ class SnippetsController < UITableViewController
 
       App.lectronimo.run snippet.content
 
-      self.navigationController.viewControllers[1].updateCanvas
+      canvasController.updateCanvas
+    end
+  end
+
+  def canvasController
+    self.navigationController.viewControllers.find do |controller|
+      controller.is_a? CanvasController
     end
   end
 
@@ -113,25 +115,25 @@ class SnippetsController < UITableViewController
 
     controller.navigationController.popViewControllerAnimated(true)
 
-    @selected_snippet = nil
+    @selected_snippet = nil # release snippet in case the view is reused
   end
 
   def setEditing(editing, animated: animated)
     super(editing, animated: animated).tap do
       @editing = editing
 
-      MotionData::Context.main.save Pointer.new(:object)
-      MotionData::Context.current.saveChanges
-      MotionData::Context.root.saveChanges
+      Snippet.save
 
       snippets.reloadData
     end
   end
 
   def viewWillAppear(animated)
-    @editing = false
+    super.tap do
+      @editing = false
 
-    super(animated).tap { snippets.reloadData }
+      snippets.reloadData
+    end
   end
 
   def viewDidLoad

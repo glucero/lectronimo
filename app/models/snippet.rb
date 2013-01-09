@@ -39,6 +39,19 @@ class Snippet < MotionData::ManagedObject
 
       Snippet.new attributes
     end
+
+    Snippet.save
+  end
+
+  def self.save
+    MotionData::Context.main.save Pointer.new(:object)
+    MotionData::Context.current.saveChanges
+    MotionData::Context.root.saveChanges
+  end
+
+  def self.delete(snippet)
+    MotionData::Context.main.deleteObject snippet
+    Snippet.save
   end
 
   def self.next_snippet_id

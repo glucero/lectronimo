@@ -29,9 +29,9 @@ class PaletteController < UIViewController
   def set_color(color)
     swatch.color = color
 
-    red.text   = "#{'%.4f' % (color[:red].to_f   / 2.55)}"
-    green.text = "#{'%.4f' % (color[:green].to_f / 2.55)}"
-    blue.text  = "#{'%.4f' % (color[:blue].to_f  / 2.55)}"
+    [red, green, blue].zip(color.keys) do |level, hue|
+      level.text = "#{'%.4f' % (color[hue].to_f / 255)}"
+    end
   end
 
   def pickerView(pickerView, didSelectRow: row, inComponent: component)

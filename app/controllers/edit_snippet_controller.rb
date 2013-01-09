@@ -28,15 +28,20 @@ class EditSnippetController < UITableViewController
       end
 
       Snippet.create attributes
-
-      MotionData::Context.main.save Pointer.new(:object)
-      MotionData::Context.current.saveChanges
-      MotionData::Context.root.saveChanges
     end
 
-    snippet = nil # release the snippet incase the view is reused
-
     self.delegate.save(self)
+  end
+
+  def canBecomeFirstResponder
+    true
+  end
+
+  def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
+    # On the iPhone, don't rotate to upside-down portrait orientation
+    unless UIDevice.currentDevice.userInterfaceIdiom.eql? UIUserInterfaceIdiomPad
+      interfaceOrientation.eql? UIInterfaceOrientationPortraitUpsideDown
+    end
   end
 
 end
