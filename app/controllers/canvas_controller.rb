@@ -57,6 +57,10 @@ class CanvasController < UIViewController
     # run the commands
     App.lectronimo.run sender.text
 
+    updateCanvas
+  end
+
+  def updateCanvas
     if App.lectronimo.visible?
       icon.hidden = false
 

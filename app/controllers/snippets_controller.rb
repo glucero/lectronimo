@@ -92,6 +92,8 @@ class SnippetsController < UITableViewController
       Popup.initWithMessage(snippet.title, title: "Executing Snippet")
 
       App.lectronimo.run snippet.content
+
+      self.navigationController.viewControllers[1].updateCanvas
     end
   end
 
