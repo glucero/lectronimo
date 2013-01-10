@@ -87,9 +87,11 @@ class SnippetsController < UITableViewController
     else
       Popup.initWithMessage(snippet.title, title: "Executing Snippet")
 
-      App.lectronimo.run snippet.content
+      Dispatch::Queue.main.async do
+        App.lectronimo.run snippet.content
 
-      canvasController.updateCanvas
+        Dispatch::Queue.main.async { canvasController.updateCanvas }
+      end
     end
   end
 

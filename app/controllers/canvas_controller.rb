@@ -55,9 +55,11 @@ class CanvasController < UIViewController
     back.hidden = false
 
     # run the commands
-    App.lectronimo.run sender.text
+    Dispatch::Queue.main.async do
+      App.lectronimo.run sender.text
 
-    updateCanvas
+      Dispatch::Queue.main.async { updateCanvas }
+    end
   end
 
   def updateCanvas
