@@ -28,6 +28,7 @@ class EditSnippetController < UITableViewController
       end
 
       Snippet.create attributes
+      Snippet.save
     end
 
     self.delegate.save(self)

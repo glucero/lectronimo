@@ -4,6 +4,7 @@ $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project'
 
 # ENV['retina'] = '3.5' # launch the retina simulator by default
+# ENV['retina'] = '4' # launch the retina simulator by default
 
 require 'rubygems'
 require 'ib'
