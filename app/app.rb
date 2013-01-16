@@ -34,6 +34,13 @@ class App
 
     @screen = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @lectronimo = Lectronimo.new
+
+    # if App.size.eql? CGSize.new(320, 480)
+      # @storyboard = UIStoryboard.storyboardWithName('iPhone4StoryBoard', bundle: nil)
+    # else
+      # @storyboard = UIStoryboard.storyboardWithName('iPhone5StoryBoard', bundle: nil)
+    # end
+
     @storyboard = UIStoryboard.storyboardWithName("Storyboard", bundle: nil)
 
     @screen.rootViewController = @storyboard.instantiateInitialViewController

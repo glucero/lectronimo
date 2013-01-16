@@ -93,10 +93,4 @@ class CanvasController < UIViewController
     true
   end
 
-  def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
-    # On the iPhone, don't rotate to upside-down portrait orientation
-    unless UIDevice.currentDevice.userInterfaceIdiom.eql? UIUserInterfaceIdiomPad
-      interfaceOrientation.eql? UIInterfaceOrientationPortraitUpsideDown
-    end
-  end
 end
