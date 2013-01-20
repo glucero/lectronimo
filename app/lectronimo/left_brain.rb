@@ -83,25 +83,20 @@ module LeftBrain
   end
 
   def phi
-    (1 + Math.sqrt(5)) / 2
+    (1 + squareroot(5)) / 2
   end
 
   def euler
     Math::E
   end
 
-  def bind(name, arguments, function)
-    @binding.reject! { |cmd| cmd[:name] == name }
-    @binding << { :name => name,
-                  :arg  => arguments,
-                  :call => function }
-  end
-
   def make(variable, value)
-    value    = evaluate(value)
-    function = ->(*arguments) { value }
+    value     = evaluate(value)
+    function  = { :name => variable,
+                  :args => 0,
+                  :function => ->(*arguments) { value } }
 
-    bind(variable, 0, function)
+    bind function
   end
 
   def repeat(iterations, commands)
@@ -122,13 +117,15 @@ module LeftBrain
   end
 
   def command(command, variables, commands)
-    function = ->(*arguments) do
-      execute Marshal.load(Marshal.dump commands).map do |command|
-        substitute(command, variables, arguments)
-      end
-    end
+    function = { :name => command,
+                 :args  => variables.count,
+                 :function => ->(*arguments) do
+                   execute Marshal.load(Marshal.dump commands).map do |command|
+                     substitute(command, variables, arguments)
+                   end
+                 end }
 
-    bind(command, variables.count, function)
+    bind function
   end
 
   def if(test, success)

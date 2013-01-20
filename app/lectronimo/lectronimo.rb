@@ -7,31 +7,37 @@ class Lectronimo
           RightBrain
 
   def initialize
-    @paths   = []
-    @binding = [] # user created commands and variable container
-
-    Commands.each do |command|
-      command[:call] = ->(*arguments) do
-        send(command[:name], *arguments)
-      end
-    end
-
     # set lectronimo's defaults
-    start_path App.center
-    pencolor   :black
-    pensize    1.0
-    heading    0.0
+    Commands.each { |command| bind command } # learn the default commands
+
+    start    App.center
+    pencolor :black
+    pensize  1.0
+    heading  0.0
     pendown
     show
   end
 
-  def binding
-    @binding
+  def memory
+    @memory ||= {}
   end
 
-  def lookup(symbol)
-    Commands.find { |cmd| cmd[:name] == symbol || cmd[:alias] == symbol } or
-    @binding.find { |cmd| cmd[:name] == symbol }
+  def forget
+    memory.clear and Commands.each { |command| bind command }
+  end
+
+  def bind(command)
+    [:name, :alias].each do |key|
+      if name = command[key]
+        memory[name] = command
+
+        unless memory[name][:function]
+          memory[name][:function] = ->(*arguments) do
+            send command[:name], *arguments
+          end
+        end
+      end
+    end
   end
 
   def run(snippet)
@@ -60,51 +66,23 @@ class Lectronimo
     end
   end
 
-  def unnest(commands)
-    commands.is_a?(Array)? commands.shift : commands
-  end
-
   def evaluate(commands)
-    token = unnest(commands)
+    token = commands.is_a?(Array)? commands.shift : commands
 
-    if function = lookup(token)
-      arguments = function[:arg].times.map do
-        function[:store] ? unnest(commands) : evaluate(commands)
+    if function = memory[token]
+      arguments = function[:args].times.map do
+        if token =~ /command|repeat/
+          commands.is_a?(Array)? commands.shift : commands
+        else
+          evaluate commands
+        end
       end
 
-      function[:call][*arguments]
+      function[:function][*arguments]
     else
       token
     end
   end
-
-  # aliases
-  alias sub   subtract
-  alias mul   multiply
-  alias div   divide
-  alias abs   absolute
-  alias pow   power
-  alias mod   modulo
-  alias sin   sine
-  alias cos   cosine
-  alias tan   tangent
-  alias asin  arcsine
-  alias acos  arccosine
-  alias atan  arctangent
-  alias log   logarithm
-  alias sqrt  squareroot
-  alias cbrt  cuberoot
-  alias hypot hypotenuse
-  alias diff  different
-  alias pu    penup
-  alias pd    pendown
-  alias ps    pensize
-  alias pc    pencolor
-  alias go    goto
-  alias fd    forward
-  alias bk    back
-  alias rt    right
-  alias lt    left
 
 end
 

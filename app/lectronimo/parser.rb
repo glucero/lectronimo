@@ -18,7 +18,7 @@ class Parser
   def parse
     @tokens ||= @snippet.split(/(!?\[)|(!?\])|\s/).map do |token|
       unless token.empty?
-        if token[/[0-9]+(\.[0-9]+)?/]
+        if token =~ /[0-9]+(\.[0-9]+)?/
           token.to_f
         else
           token.downcase.to_sym

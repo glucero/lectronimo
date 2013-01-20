@@ -30,7 +30,7 @@ class PaletteController < UIViewController
     swatch.color = color
 
     [red, green, blue].zip(color.keys) do |level, hue|
-      level.text = ('%.4f' % (color[hue].to_f / 255)).to_s
+      level.text = '%.4f' % color[hue]
     end
   end
 

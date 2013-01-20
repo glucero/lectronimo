@@ -2,146 +2,841 @@ module Spectrum
 
   Colors = {
 
-    :'alice-blue'          => { :red => 240, :green => 248, :blue => 255 },
-    :'antique-white'       => { :red => 250, :green => 235, :blue => 215 },
-    :aqua                  => { :red =>   0, :green => 255, :blue => 255 },
-    :aquamarine            => { :red => 127, :green => 255, :blue => 212 },
-    :azure                 => { :red => 240, :green => 255, :blue => 255 },
-    :beige                 => { :red => 245, :green => 245, :blue => 220 },
-    :bisque                => { :red => 255, :green => 228, :blue => 196 },
-    :black                 => { :red =>   0, :green =>   0, :blue =>   0 },
-    :'blanched-almond'     => { :red => 255, :green => 235, :blue => 205 },
-    :blue                  => { :red =>   0, :green =>   0, :blue => 255 },
-    :'blue-violet'         => { :red => 138, :green =>  43, :blue => 226 },
-    :brown                 => { :red => 165, :green =>  42, :blue =>  42 },
-    :burlywood             => { :red => 222, :green => 184, :blue => 135 },
-    :'cadet-blue'          => { :red =>  95, :green => 158, :blue => 160 },
-    :chartreuse            => { :red => 127, :green => 255, :blue =>   0 },
-    :chocolate             => { :red => 210, :green => 105, :blue =>  30 },
-    :coral                 => { :red => 255, :green => 127, :blue =>  80 },
-    :'cornflower-blue'     => { :red => 100, :green => 149, :blue => 237 },
-    :'corn-silk'           => { :red => 255, :green => 248, :blue => 220 },
-    :crimson               => { :red => 220, :green =>  20, :blue =>  60 },
-    :cyan                  => { :red =>   0, :green => 255, :blue => 255 },
-    :'dark-blue'           => { :red =>   0, :green =>   0, :blue => 139 },
-    :'dark-cyan'           => { :red =>   0, :green => 139, :blue => 139 },
-    :'dark-goldenrod'      => { :red => 184, :green => 134, :blue =>  11 },
-    :'dark-grey'           => { :red => 169, :green => 169, :blue => 169 },
-    :'dark-green'          => { :red =>   0, :green => 100, :blue =>   0 },
-    :'dark-khaki'          => { :red => 189, :green => 183, :blue => 107 },
-    :'dark-magenta'        => { :red => 139, :green =>   0, :blue => 139 },
-    :'dark-olivegreen'     => { :red =>  85, :green => 107, :blue =>  47 },
-    :'dark-orange'         => { :red => 255, :green => 140, :blue =>   0 },
-    :'dark-orchid'         => { :red => 153, :green =>  50, :blue => 204 },
-    :'dark-red'            => { :red => 139, :green =>   0, :blue =>   0 },
-    :'dark-salmon'         => { :red => 233, :green => 150, :blue => 122 },
-    :'dark-sea-green'      => { :red => 143, :green => 188, :blue => 143 },
-    :'dark-slate-blue'     => { :red =>  72, :green =>  61, :blue => 139 },
-    :'dark-slate-grey'     => { :red =>  47, :green =>  79, :blue =>  79 },
-    :'dark-turquoise'      => { :red =>   0, :green => 206, :blue => 209 },
-    :'dark-violet'         => { :red => 148, :green =>   0, :blue => 211 },
-    :'deep-pink'           => { :red => 255, :green =>  20, :blue => 147 },
-    :'deep-sky-blue'       => { :red =>   0, :green => 191, :blue => 255 },
-    :'dim-grey'            => { :red => 105, :green => 105, :blue => 105 },
-    :'dodger-blue'         => { :red =>  30, :green => 144, :blue => 255 },
-    :'fire-brick'          => { :red => 178, :green =>  34, :blue =>  34 },
-    :'floral-white'        => { :red => 255, :green => 250, :blue => 240 },
-    :'forest-green'        => { :red =>  34, :green => 139, :blue =>  34 },
-    :fuchsia               => { :red => 255, :green =>   0, :blue => 255 },
-    :gainsboro             => { :red => 220, :green => 220, :blue => 220 },
-    :'ghost-white'         => { :red => 248, :green => 248, :blue => 255 },
-    :gold                  => { :red => 255, :green => 215, :blue =>   0 },
-    :'golden-rod'          => { :red => 218, :green => 165, :blue =>  32 },
-    :grey                  => { :red => 128, :green => 128, :blue => 128 },
-    :green                 => { :red =>   0, :green => 128, :blue =>   0 },
-    :'green-yellow'        => { :red => 173, :green => 255, :blue =>  47 },
-    :honeydew              => { :red => 240, :green => 255, :blue => 240 },
-    :'hot-pink'            => { :red => 255, :green => 105, :blue => 180 },
-    :'indian-red'          => { :red => 205, :green =>  92, :blue =>  92 },
-    :indigo                => { :red =>  75, :green =>   0, :blue => 130 },
-    :ivory                 => { :red => 255, :green => 255, :blue => 240 },
-    :khaki                 => { :red => 240, :green => 230, :blue => 140 },
-    :lavender              => { :red => 230, :green => 230, :blue => 250 },
-    :'lavender-blush'      => { :red => 255, :green => 240, :blue => 245 },
-    :'lawn-green'          => { :red => 124, :green => 252, :blue =>   0 },
-    :'lemon-chiffon'       => { :red => 255, :green => 250, :blue => 205 },
-    :'light-blue'          => { :red => 173, :green => 216, :blue => 230 },
-    :'light-coral'         => { :red => 240, :green => 128, :blue => 128 },
-    :'light-cyan'          => { :red => 224, :green => 255, :blue => 255 },
-    :'light-green'         => { :red => 144, :green => 238, :blue => 144 },
-    :'light-grey'          => { :red => 211, :green => 211, :blue => 211 },
-    :'light-pink'          => { :red => 255, :green => 182, :blue => 193 },
-    :'light-salmon'        => { :red => 255, :green => 160, :blue => 122 },
-    :'light-sea-green'     => { :red =>  32, :green => 178, :blue => 170 },
-    :'light-sky-blue'      => { :red => 135, :green => 206, :blue => 250 },
-    :'light-slate-grey'    => { :red => 119, :green => 136, :blue => 153 },
-    :'light-steel-blue'    => { :red => 176, :green => 196, :blue => 222 },
-    :'light-yellow'        => { :red => 255, :green => 255, :blue => 224 },
-    :lime                  => { :red =>   0, :green => 255, :blue =>   0 },
-    :'lime-green'          => { :red =>  50, :green => 205, :blue =>  50 },
-    :linen                 => { :red => 250, :green => 240, :blue => 230 },
-    :magenta               => { :red => 255, :green =>   0, :blue => 255 },
-    :maroon                => { :red => 128, :green =>   0, :blue =>   0 },
-    :'medium-aquamarine'   => { :red => 102, :green => 205, :blue => 170 },
-    :'medium-blue'         => { :red =>   0, :green =>   0, :blue => 205 },
-    :'medium-orchid'       => { :red => 186, :green =>  85, :blue => 211 },
-    :'medium-purple'       => { :red => 147, :green => 112, :blue => 219 },
-    :'medium-sea-green'    => { :red =>  60, :green => 179, :blue => 113 },
-    :'medium-slate-blue'   => { :red => 123, :green => 104, :blue => 238 },
-    :'medium-spring-green' => { :red =>   0, :green => 250, :blue => 154 },
-    :'medium-turquoise'    => { :red =>  72, :green => 209, :blue => 204 },
-    :'medium-violet-red'   => { :red => 199, :green =>  21, :blue => 133 },
-    :'midnight-blue'       => { :red =>  25, :green =>  25, :blue => 112 },
-    :'mint-cream'          => { :red => 245, :green => 255, :blue => 250 },
-    :'misty-rose'          => { :red => 255, :green => 228, :blue => 225 },
-    :moccasin              => { :red => 255, :green => 228, :blue => 181 },
-    :'navajo-white'        => { :red => 255, :green => 222, :blue => 173 },
-    :navy                  => { :red =>   0, :green =>   0, :blue => 128 },
-    :'old-lace'            => { :red => 253, :green => 245, :blue => 230 },
-    :olive                 => { :red => 128, :green => 128, :blue =>   0 },
-    :'olive-drab'          => { :red => 107, :green => 142, :blue =>  35 },
-    :orange                => { :red => 255, :green => 165, :blue =>   0 },
-    :'orange-red'          => { :red => 255, :green =>  69, :blue =>   0 },
-    :orchid                => { :red => 218, :green => 112, :blue => 214 },
-    :'pale-golden-rod'     => { :red => 238, :green => 232, :blue => 170 },
-    :'pale-green'          => { :red => 152, :green => 251, :blue => 152 },
-    :'pale-turquoise'      => { :red => 175, :green => 238, :blue => 238 },
-    :'pale-violet-red'     => { :red => 219, :green => 112, :blue => 147 },
-    :'papaya-whip'         => { :red => 255, :green => 239, :blue => 213 },
-    :'peach-puff'          => { :red => 255, :green => 218, :blue => 185 },
-    :peru                  => { :red => 205, :green => 133, :blue =>  63 },
-    :pink                  => { :red => 255, :green => 192, :blue => 203 },
-    :plum                  => { :red => 221, :green => 160, :blue => 221 },
-    :'powder-blue'         => { :red => 176, :green => 224, :blue => 230 },
-    :purple                => { :red => 128, :green =>   0, :blue => 128 },
-    :red                   => { :red => 255, :green =>   0, :blue =>   0 },
-    :'rosy-brown'          => { :red => 188, :green => 143, :blue => 143 },
-    :'royal-blue'          => { :red =>  65, :green => 105, :blue => 225 },
-    :'saddle-brown'        => { :red => 139, :green =>  69, :blue =>  19 },
-    :salmon                => { :red => 250, :green => 128, :blue => 114 },
-    :'sandy-brown'         => { :red => 244, :green => 164, :blue =>  96 },
-    :'sea-green'           => { :red =>  46, :green => 139, :blue =>  87 },
-    :'sea-shell'           => { :red => 255, :green => 245, :blue => 238 },
-    :sienna                => { :red => 160, :green =>  82, :blue =>  45 },
-    :silver                => { :red => 192, :green => 192, :blue => 192 },
-    :'sky-blue'            => { :red => 135, :green => 206, :blue => 235 },
-    :'slate-blue'          => { :red => 106, :green =>  90, :blue => 205 },
-    :'slate-grey'          => { :red => 112, :green => 128, :blue => 144 },
-    :snow                  => { :red => 255, :green => 250, :blue => 250 },
-    :'spring-green'        => { :red =>   0, :green => 255, :blue => 127 },
-    :'steel-blue'          => { :red =>  70, :green => 130, :blue => 180 },
-    :tan                   => { :red => 210, :green => 180, :blue => 140 },
-    :teal                  => { :red =>   0, :green => 128, :blue => 128 },
-    :thistle               => { :red => 216, :green => 191, :blue => 216 },
-    :tomato                => { :red => 255, :green =>  99, :blue =>  71 },
-    :turquoise             => { :red =>  64, :green => 224, :blue => 208 },
-    :violet                => { :red => 238, :green => 130, :blue => 238 },
-    :wheat                 => { :red => 245, :green => 222, :blue => 179 },
-    :white                 => { :red => 255, :green => 255, :blue => 255 },
-    :'white-smoke'         => { :red => 245, :green => 245, :blue => 245 },
-    :yellow                => { :red => 255, :green => 255, :blue =>   0 },
-    :'yellow-green'        => { :red => 154, :green => 205, :blue =>  50 }
+    :"alice-blue" => {
+      :red   => 0.941176414489746,
+      :green => 0.972548961639404,
+      :blue  => 1.0
+    },
+
+    :"antique-white" => {
+      :red   => 0.980391979217529,
+      :green => 0.921568632125854,
+      :blue  => 0.843137264251709
+    },
+
+    :aqua => {
+      :red   => 0.0,
+      :green => 1.0,
+      :blue  => 1.0
+    },
+
+    :aquamarine => {
+      :red   => 0.498039126396179,
+      :green => 1.0,
+      :blue  => 0.831372499465942
+    },
+
+    :azure => {
+      :red   => 0.941176414489746,
+      :green => 1.0,
+      :blue  => 1.0
+    },
+
+    :beige => {
+      :red   => 0.960784196853638,
+      :green => 0.960784196853638,
+      :blue  => 0.862745046615601
+    },
+
+    :bisque => {
+      :red   => 1.0,
+      :green => 0.894117593765259,
+      :blue  => 0.768627405166626
+    },
+
+    :black => {
+      :red   => 0.0,
+      :green => 0.0,
+      :blue  => 0.0
+    },
+
+    :"blanched-almond" => {
+      :red   => 1.0,
+      :green => 0.921568632125854,
+      :blue  => 0.803921461105347
+    },
+
+    :blue => {
+      :red   => 0.0,
+      :green => 0.0,
+      :blue  => 1.0
+    },
+
+    :"blue-violet" => {
+      :red   => 0.541176319122314,
+      :green => 0.168627440929413,
+      :blue  => 0.886274337768555
+    },
+
+    :brown => {
+      :red   => 0.647058725357056,
+      :green => 0.164705872535706,
+      :blue  => 0.164705872535706
+    },
+
+    :burlywood => {
+      :red   => 0.870588064193726,
+      :green => 0.721568584442139,
+      :blue  => 0.529411792755127
+    },
+
+    :"cadet-blue" => {
+      :red   => 0.372548937797546,
+      :green => 0.61960768699646,
+      :blue  => 0.627450942993164
+    },
+
+    :chartreuse => {
+      :red   => 0.498039126396179,
+      :green => 1.0,
+      :blue  => 0.0
+    },
+
+    :chocolate => {
+      :red   => 0.823529243469238,
+      :green => 0.411764621734619,
+      :blue  => 0.117647051811218
+    },
+
+    :coral => {
+      :red   => 1.0,
+      :green => 0.498039126396179,
+      :blue  => 0.313725471496582
+    },
+
+    :"cornflower-blue" => {
+      :red   => 0.392156839370728,
+      :green => 0.584313631057739,
+      :blue  => 0.929411649703979
+    },
+
+    :"corn-silk" => {
+      :red   => 1.0,
+      :green => 0.972548961639404,
+      :blue  => 0.862745046615601
+    },
+
+    :crimson => {
+      :red   => 0.862745046615601,
+      :green => 0.0784313678741455,
+      :blue  => 0.235294103622437
+    },
+
+    :cyan => {
+      :red   => 0.0,
+      :green => 1.0,
+      :blue  => 1.0
+    },
+
+    :"dark-blue" => {
+      :red   => 0.0,
+      :green => 0.0,
+      :blue  => 0.545098066329956
+    },
+
+    :"dark-cyan" => {
+      :red   => 0.0,
+      :green => 0.545098066329956,
+      :blue  => 0.545098066329956
+    },
+
+    :"dark-goldenrod" => {
+      :red   => 0.721568584442139,
+      :green => 0.525490045547485,
+      :blue  => 0.04313725233078
+    },
+
+    :"dark-grey" => {
+      :red   => 0.662744998931885,
+      :green => 0.662744998931885,
+      :blue  => 0.662744998931885
+    },
+
+    :"dark-green" => {
+      :red   => 0.0,
+      :green => 0.392156839370728,
+      :blue  => 0.0
+    },
+
+    :"dark-khaki" => {
+      :red   => 0.74117636680603,
+      :green => 0.717647075653076,
+      :blue  => 0.419607758522034
+    },
+
+    :"dark-magenta" => {
+      :red   => 0.545098066329956,
+      :green => 0.0,
+      :blue  => 0.545098066329956
+    },
+
+    :"dark-olivegreen" => {
+      :red   => 0.333333253860474,
+      :green => 0.419607758522034,
+      :blue  => 0.184313714504242
+    },
+
+    :"dark-orange" => {
+      :red   => 1.0,
+      :green => 0.549019575119019,
+      :blue  => 0.0
+    },
+
+    :"dark-orchid" => {
+      :red   => 0.599999904632568,
+      :green => 0.196078419685364,
+      :blue  => 0.799999952316284
+    },
+
+    :"dark-red" => {
+      :red   => 0.545098066329956,
+      :green => 0.0,
+      :blue  => 0.0
+    },
+
+    :"dark-salmon" => {
+      :red   => 0.91372537612915,
+      :green => 0.588235139846802,
+      :blue  => 0.478431344032288
+    },
+
+    :"dark-sea-green" => {
+      :red   => 0.560784339904785,
+      :green => 0.737254858016968,
+      :blue  => 0.560784339904785
+    },
+
+    :"dark-slate-blue" => {
+      :red   => 0.282352924346924,
+      :green => 0.239215672016144,
+      :blue  => 0.545098066329956
+    },
+
+    :"dark-slate-grey" => {
+      :red   => 0.184313714504242,
+      :green => 0.30980384349823,
+      :blue  => 0.30980384349823
+    },
+
+    :"dark-turquoise" => {
+      :red   => 0.0,
+      :green => 0.807842969894409,
+      :blue  => 0.819607734680176
+    },
+
+    :"dark-violet" => {
+      :red   => 0.580392122268677,
+      :green => 0.0,
+      :blue  => 0.82745099067688
+    },
+
+    :"deep-pink" => {
+      :red   => 1.0,
+      :green => 0.0784313678741455,
+      :blue  => 0.576470613479614
+    },
+
+    :"deep-sky-blue" => {
+      :red   => 0.0,
+      :green => 0.749019622802734,
+      :blue  => 1.0
+    },
+
+    :"dim-grey" => {
+      :red   => 0.411764621734619,
+      :green => 0.411764621734619,
+      :blue  => 0.411764621734619
+    },
+
+    :"dodger-blue" => {
+      :red   => 0.117647051811218,
+      :green => 0.564705848693848,
+      :blue  => 1.0
+    },
+
+    :"fire-brick" => {
+      :red   => 0.698039054870605,
+      :green => 0.133333325386047,
+      :blue  => 0.133333325386047
+    },
+
+    :"floral-white" => {
+      :red   => 1.0,
+      :green => 0.980391979217529,
+      :blue  => 0.941176414489746
+    },
+
+    :"forest-green" => {
+      :red   => 0.133333325386047,
+      :green => 0.545098066329956,
+      :blue  => 0.133333325386047
+    },
+
+    :fuchsia => {
+      :red   => 1.0,
+      :green => 0.0,
+      :blue  => 1.0
+    },
+
+    :gainsboro => {
+      :red   => 0.862745046615601,
+      :green => 0.862745046615601,
+      :blue  => 0.862745046615601
+    },
+
+    :"ghost-white" => {
+      :red   => 0.972548961639404,
+      :green => 0.972548961639404,
+      :blue  => 1.0
+    },
+
+    :gold => {
+      :red   => 1.0,
+      :green => 0.843137264251709,
+      :blue  => 0.0
+    },
+
+    :"golden-rod" => {
+      :red   => 0.854901790618896,
+      :green => 0.647058725357056,
+      :blue  => 0.125490188598633
+    },
+
+    :grey => {
+      :red   => 0.501960754394531,
+      :green => 0.501960754394531,
+      :blue  => 0.501960754394531
+    },
+
+    :green => {
+      :red   => 0.0,
+      :green => 0.501960754394531,
+      :blue  => 0.0
+    },
+
+    :"green-yellow" => {
+      :red   => 0.678431272506714,
+      :green => 1.0,
+      :blue  => 0.184313714504242
+    },
+
+    :honeydew => {
+      :red   => 0.941176414489746,
+      :green => 1.0,
+      :blue  => 0.941176414489746
+    },
+
+    :"hot-pink" => {
+      :red   => 1.0,
+      :green => 0.411764621734619,
+      :blue  => 0.70588231086731
+    },
+
+    :"indian-red" => {
+      :red   => 0.803921461105347,
+      :green => 0.360784292221069,
+      :blue  => 0.360784292221069
+    },
+
+    :indigo => {
+      :red   => 0.294117569923401,
+      :green => 0.0,
+      :blue  => 0.509803771972656
+    },
+
+    :ivory => {
+      :red   => 1.0,
+      :green => 1.0,
+      :blue  => 0.941176414489746
+    },
+
+    :khaki => {
+      :red   => 0.941176414489746,
+      :green => 0.901960611343384,
+      :blue  => 0.549019575119019
+    },
+
+    :lavender => {
+      :red   => 0.901960611343384,
+      :green => 0.901960611343384,
+      :blue  => 0.980391979217529
+    },
+
+    :"lavender-blush" => {
+      :red   => 1.0,
+      :green => 0.941176414489746,
+      :blue  => 0.960784196853638
+    },
+
+    :"lawn-green" => {
+      :red   => 0.486274480819702,
+      :green => 0.988235235214233,
+      :blue  => 0.0
+    },
+
+    :"lemon-chiffon" => {
+      :red   => 1.0,
+      :green => 0.980391979217529,
+      :blue  => 0.803921461105347
+    },
+
+    :"light-blue" => {
+      :red   => 0.678431272506714,
+      :green => 0.847058773040771,
+      :blue  => 0.901960611343384
+    },
+
+    :"light-coral" => {
+      :red   => 0.941176414489746,
+      :green => 0.501960754394531,
+      :blue  => 0.501960754394531
+    },
+
+    :"light-cyan" => {
+      :red   => 0.87843132019043,
+      :green => 1.0,
+      :blue  => 1.0
+    },
+
+    :"light-green" => {
+      :red   => 0.564705848693848,
+      :green => 0.933333158493042,
+      :blue  => 0.564705848693848
+    },
+
+    :"light-grey" => {
+      :red   => 0.82745099067688,
+      :green => 0.82745099067688,
+      :blue  => 0.82745099067688
+    },
+
+    :"light-pink" => {
+      :red   => 1.0,
+      :green => 0.713725328445435,
+      :blue  => 0.756862640380859
+    },
+
+    :"light-salmon" => {
+      :red   => 1.0,
+      :green => 0.627450942993164,
+      :blue  => 0.478431344032288
+    },
+
+    :"light-sea-green" => {
+      :red   => 0.125490188598633,
+      :green => 0.698039054870605,
+      :blue  => 0.666666507720947
+    },
+
+    :"light-sky-blue" => {
+      :red   => 0.529411792755127,
+      :green => 0.807842969894409,
+      :blue  => 0.980391979217529
+    },
+
+    :"light-slate-grey" => {
+      :red   => 0.466666579246521,
+      :green => 0.533333301544189,
+      :blue  => 0.599999904632568
+    },
+
+    :"light-steel-blue" => {
+      :red   => 0.69019603729248,
+      :green => 0.768627405166626,
+      :blue  => 0.870588064193726
+    },
+
+    :"light-yellow" => {
+      :red   => 1.0,
+      :green => 1.0,
+      :blue  => 0.87843132019043
+    },
+
+    :lime => {
+      :red   => 0.0,
+      :green => 1.0,
+      :blue  => 0.0
+    },
+
+    :"lime-green" => {
+      :red   => 0.196078419685364,
+      :green => 0.803921461105347,
+      :blue  => 0.196078419685364
+    },
+
+    :linen => {
+      :red   => 0.980391979217529,
+      :green => 0.941176414489746,
+      :blue  => 0.901960611343384
+    },
+
+    :magenta => {
+      :red   => 1.0,
+      :green => 0.0,
+      :blue  => 1.0
+    },
+
+    :maroon => {
+      :red   => 0.501960754394531,
+      :green => 0.0,
+      :blue  => 0.0
+    },
+
+    :"medium-aquamarine" => {
+      :red   => 0.399999976158142,
+      :green => 0.803921461105347,
+      :blue  => 0.666666507720947
+    },
+
+    :"medium-blue" => {
+      :red   => 0.0,
+      :green => 0.0,
+      :blue  => 0.803921461105347
+    },
+
+    :"medium-orchid" => {
+      :red   => 0.729411602020264,
+      :green => 0.333333253860474,
+      :blue  => 0.82745099067688
+    },
+
+    :"medium-purple" => {
+      :red   => 0.576470613479614,
+      :green => 0.439215660095215,
+      :blue  => 0.858823537826538
+    },
+
+    :"medium-sea-green" => {
+      :red   => 0.235294103622437,
+      :green => 0.701960802078247,
+      :blue  => 0.443137168884277
+    },
+
+    :"medium-slate-blue" => {
+      :red   => 0.48235285282135,
+      :green => 0.407843112945557,
+      :blue  => 0.933333158493042
+    },
+
+    :"medium-spring-green" => {
+      :red   => 0.0,
+      :green => 0.980391979217529,
+      :blue  => 0.603921413421631
+    },
+
+    :"medium-turquoise" => {
+      :red   => 0.282352924346924,
+      :green => 0.819607734680176,
+      :blue  => 0.799999952316284
+    },
+
+    :"medium-violet-red" => {
+      :red   => 0.780392169952393,
+      :green => 0.0823529362678528,
+      :blue  => 0.521568536758423
+    },
+
+    :"midnight-blue" => {
+      :red   => 0.0980392098426819,
+      :green => 0.0980392098426819,
+      :blue  => 0.439215660095215
+    },
+
+    :"mint-cream" => {
+      :red   => 0.960784196853638,
+      :green => 1.0,
+      :blue  => 0.980391979217529
+    },
+
+    :"misty-rose" => {
+      :red   => 1.0,
+      :green => 0.894117593765259,
+      :blue  => 0.882352828979492
+    },
+
+    :moccasin => {
+      :red   => 1.0,
+      :green => 0.894117593765259,
+      :blue  => 0.709803819656372
+    },
+
+    :"navajo-white" => {
+      :red   => 1.0,
+      :green => 0.870588064193726,
+      :blue  => 0.678431272506714
+    },
+
+    :navy => {
+      :red   => 0.0,
+      :green => 0.0,
+      :blue  => 0.501960754394531
+    },
+
+    :"old-lace" => {
+      :red   => 0.992156744003296,
+      :green => 0.960784196853638,
+      :blue  => 0.901960611343384
+    },
+
+    :olive => {
+      :red   => 0.501960754394531,
+      :green => 0.501960754394531,
+      :blue  => 0.0
+    },
+
+    :"olive-drab" => {
+      :red   => 0.419607758522034,
+      :green => 0.556862592697144,
+      :blue  => 0.137254893779755
+    },
+
+    :orange => {
+      :red   => 1.0,
+      :green => 0.647058725357056,
+      :blue  => 0.0
+    },
+
+    :"orange-red" => {
+      :red   => 1.0,
+      :green => 0.270588159561157,
+      :blue  => 0.0
+    },
+
+    :orchid => {
+      :red   => 0.854901790618896,
+      :green => 0.439215660095215,
+      :blue  => 0.839215517044067
+    },
+
+    :"pale-golden-rod" => {
+      :red   => 0.933333158493042,
+      :green => 0.909803867340088,
+      :blue  => 0.666666507720947
+    },
+
+    :"pale-green" => {
+      :red   => 0.596078395843506,
+      :green => 0.984313726425171,
+      :blue  => 0.596078395843506
+    },
+
+    :"pale-turquoise" => {
+      :red   => 0.686274528503418,
+      :green => 0.933333158493042,
+      :blue  => 0.933333158493042
+    },
+
+    :"pale-violet-red" => {
+      :red   => 0.858823537826538,
+      :green => 0.439215660095215,
+      :blue  => 0.576470613479614
+    },
+
+    :"papaya-whip" => {
+      :red   => 1.0,
+      :green => 0.937254905700684,
+      :blue  => 0.835294008255005
+    },
+
+    :"peach-puff" => {
+      :red   => 1.0,
+      :green => 0.854901790618896,
+      :blue  => 0.725490093231201
+    },
+
+    :peru => {
+      :red   => 0.803921461105347,
+      :green => 0.521568536758423,
+      :blue  => 0.247058808803558
+    },
+
+    :pink => {
+      :red   => 1.0,
+      :green => 0.752941131591797,
+      :blue  => 0.796078443527222
+    },
+
+    :plum => {
+      :red   => 0.866666555404663,
+      :green => 0.627450942993164,
+      :blue  => 0.866666555404663
+    },
+
+    :"powder-blue" => {
+      :red   => 0.69019603729248,
+      :green => 0.87843132019043,
+      :blue  => 0.901960611343384
+    },
+
+    :purple => {
+      :red   => 0.501960754394531,
+      :green => 0.0,
+      :blue  => 0.501960754394531
+    },
+
+    :red => {
+      :red   => 1.0,
+      :green => 0.0,
+      :blue  => 0.0
+    },
+
+    :"rosy-brown" => {
+      :red   => 0.737254858016968,
+      :green => 0.560784339904785,
+      :blue  => 0.560784339904785
+    },
+
+    :"royal-blue" => {
+      :red   => 0.254901885986328,
+      :green => 0.411764621734619,
+      :blue  => 0.882352828979492
+    },
+
+    :"saddle-brown" => {
+      :red   => 0.545098066329956,
+      :green => 0.270588159561157,
+      :blue  => 0.0745097994804382
+    },
+
+    :salmon => {
+      :red   => 0.980391979217529,
+      :green => 0.501960754394531,
+      :blue  => 0.447058796882629
+    },
+
+    :"sandy-brown" => {
+      :red   => 0.956862688064575,
+      :green => 0.643137216567993,
+      :blue  => 0.376470565795898
+    },
+
+    :"sea-green" => {
+      :red   => 0.180392146110535,
+      :green => 0.545098066329956,
+      :blue  => 0.341176390647888
+    },
+
+    :"sea-shell" => {
+      :red   => 1.0,
+      :green => 0.960784196853638,
+      :blue  => 0.933333158493042
+    },
+
+    :sienna => {
+      :red   => 0.627450942993164,
+      :green => 0.321568608283997,
+      :blue  => 0.176470577716827
+    },
+
+    :silver => {
+      :red   => 0.752941131591797,
+      :green => 0.752941131591797,
+      :blue  => 0.752941131591797
+    },
+
+    :"sky-blue" => {
+      :red   => 0.529411792755127,
+      :green => 0.807842969894409,
+      :blue  => 0.921568632125854
+    },
+
+    :"slate-blue" => {
+      :red   => 0.415686249732971,
+      :green => 0.352941155433655,
+      :blue  => 0.803921461105347
+    },
+
+    :"slate-grey" => {
+      :red   => 0.439215660095215,
+      :green => 0.501960754394531,
+      :blue  => 0.564705848693848
+    },
+
+    :snow => {
+      :red   => 1.0,
+      :green => 0.980391979217529,
+      :blue  => 0.980391979217529
+    },
+
+    :"spring-green" => {
+      :red   => 0.0,
+      :green => 1.0,
+      :blue  => 0.498039126396179
+    },
+
+    :"steel-blue" => {
+      :red   => 0.274509787559509,
+      :green => 0.509803771972656,
+      :blue  => 0.70588231086731
+    },
+
+    :tan => {
+      :red   => 0.823529243469238,
+      :green => 0.70588231086731,
+      :blue  => 0.549019575119019
+    },
+
+    :teal => {
+      :red   => 0.0,
+      :green => 0.501960754394531,
+      :blue  => 0.501960754394531
+    },
+
+    :thistle => {
+      :red   => 0.847058773040771,
+      :green => 0.749019622802734,
+      :blue  => 0.847058773040771
+    },
+
+    :tomato => {
+      :red   => 1.0,
+      :green => 0.388235211372375,
+      :blue  => 0.278431296348572
+    },
+
+    :turquoise => {
+      :red   => 0.250980377197266,
+      :green => 0.87843132019043,
+      :blue  => 0.815686225891113
+    },
+
+    :violet => {
+      :red   => 0.933333158493042,
+      :green => 0.509803771972656,
+      :blue  => 0.933333158493042
+    },
+
+    :wheat => {
+      :red   => 0.960784196853638,
+      :green => 0.870588064193726,
+      :blue  => 0.701960802078247
+    },
+
+    :white => {
+      :red   => 1.0,
+      :green => 1.0,
+      :blue  => 1.0
+    },
+
+    :"white-smoke" => {
+      :red   => 0.960784196853638,
+      :green => 0.960784196853638,
+      :blue  => 0.960784196853638
+    },
+
+    :yellow => {
+      :red   => 1.0,
+      :green => 1.0,
+      :blue  => 0.0
+    },
+
+    :"yellow-green" => {
+      :red   => 0.603921413421631,
+      :green => 0.803921461105347,
+      :blue  => 0.196078419685364
+    }
 
   }
+
 
 end

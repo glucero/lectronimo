@@ -46,13 +46,13 @@ module Body
     multiple(values).each { |degree| rotate(-degree) }
   end
 
-  def left(values) # turn right
+  def left(values)  # turn right
     multiple(values).each { |degree| rotate(+degree) }
   end
 
   def destination(steps)
-    { :sin => location.x,
-      :cos => location.y }.map do |function, coordinate|
+    { :sine   => location.x,
+      :cosine => location.y }.map do |function, coordinate|
 
       heading  = @heading + 180.0
       heading -= 360.0 if direction >= 360
@@ -72,8 +72,8 @@ module Body
   end
 
   def goto(coordinate)
-    start_path location
-    path_to CGPoint.new(*coordinate.flatten)
+    start location
+    draw CGPoint.new(*coordinate.flatten)
   end
 
   def forward(values)
