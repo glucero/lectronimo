@@ -21,7 +21,7 @@ class SnippetsController < UITableViewController
 
   def tableView(tableView, cellForRowAtIndexPath: indexPath)
     tableCell(tableView).tap do |cell|
-      if indexPath.row.eql? Snippet.all._count
+      if indexPath.row == Snippet.all._count
         cell.showsReorderControl = false
         cell.textLabel.text = 'Add New Snippet'
       else
@@ -31,10 +31,10 @@ class SnippetsController < UITableViewController
   end
 
   def tableView(tableView, editingStyleForRowAtIndexPath: indexPath)
-    if not(@editing) || indexPath.nil?
+    if !@editing || indexPath.nil?
       UITableViewCellEditingStyleNone
     elsif @editing
-      if indexPath.row.eql? Snippet.all._count
+      if indexPath.row == Snippet.all._count
         UITableViewCellEditingStyleInsert
       else
         UITableViewCellEditingStyleDelete
@@ -44,7 +44,7 @@ class SnippetsController < UITableViewController
 
   def tableView(tableView, moveRowAtIndexPath: fromIndexPath, toIndexPath: toIndexPath)
     moving, snippets = Snippet.all.sortBy(:snippet_id).partition do |snippet|
-      snippet.snippet_id.eql? fromIndexPath.row
+      snippet.snippet_id == fromIndexPath.row
     end
 
     snippets.insert(toIndexPath.row, moving.first)
@@ -54,7 +54,7 @@ class SnippetsController < UITableViewController
   end
 
   def tableView(tableView, canMoveRowAtIndexPath: indexPath)
-    @editing unless indexPath.row.eql? Snippet.all._count
+    @editing unless indexPath.row == Snippet.all._count
   end
 
   def tableView(tableView, canEditRowAtIndexPath: indexPath)
@@ -62,11 +62,11 @@ class SnippetsController < UITableViewController
   end
 
   def tableView(tableView, commitEditingStyle: editingStyle, forRowAtIndexPath: indexPath)
-    if editingStyle.eql? UITableViewCellEditingStyleDelete
+    if editingStyle == UITableViewCellEditingStyleDelete
       Snippet.delete Snippet.locate(indexPath.row)
 
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimationTop)
-    elsif editingStyle.eql? UITableViewCellEditingStyleInsert
+    elsif editingStyle == UITableViewCellEditingStyleInsert
       @selected_snippet = Snippet.locate(indexPath.row)
 
       self.performSegueWithIdentifier("Edit Snippet", sender: self)
@@ -102,11 +102,11 @@ class SnippetsController < UITableViewController
   end
 
   def prepareForSegue(segue, sender: sender)
-    if segue.identifier.eql? 'Edit Snippet'
+    if segue.identifier == 'Edit Snippet'
       controller = segue.destinationViewController
 
       controller.delegate = sender
-      controller.snippet = @selected_snippet
+      controller.snippet  = @selected_snippet
 
       setEditing(false, animated: true)
     end
@@ -116,7 +116,6 @@ class SnippetsController < UITableViewController
     snippets.reloadData
 
     controller.navigationController.popViewControllerAnimated(true)
-
     @selected_snippet = nil # release snippet in case the view is reused
   end
 

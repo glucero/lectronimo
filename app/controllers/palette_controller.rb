@@ -5,10 +5,10 @@ class PaletteController < UIViewController
   extend IB
 
   outlet :color_picker, UIPickerView
-  outlet :swatch, UIView
-  outlet :red, UILabel
-  outlet :green, UILabel
-  outlet :blue, UILabel
+  outlet :swatch,       UIView
+  outlet :red,          UILabel
+  outlet :green,        UILabel
+  outlet :blue,         UILabel
 
   def numberOfComponentsInPickerView(pickerView)
     1
@@ -30,7 +30,7 @@ class PaletteController < UIViewController
     swatch.color = color
 
     [red, green, blue].zip(color.keys) do |level, hue|
-      level.text = "#{'%.4f' % (color[hue].to_f / 255)}"
+      level.text = ('%.4f' % (color[hue].to_f / 255)).to_s
     end
   end
 

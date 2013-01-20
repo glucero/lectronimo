@@ -26,24 +26,22 @@ module Body
   end
 
   def heading(value)
-    degrees = single(value)
-
-    @heading = degrees
+    @heading = single(value)
   end
 
   def rotate(degrees)
     @heading += degrees
-    @heading += 360.0 while @heading < 0.0
-    @heading -= 360.0 while @heading > 359.0
+    @heading += 360.0 while direction < 0
+    @heading -= 360.0 while direction >= 360
   end
 
   # orientation:
   # lectronimo  vs.  iphone
-  #     2              -2
-  #     1              -1
-  #-2-1 0 1 2      -2-1 0 1 2
-  #    -1               1
-  #    -2               2
+  #      2             -2
+  #      1             -1
+  # -2-1 0 1 2     -2-1 0 1 2
+  #     -1              1
+  #     -2              2
   def right(values) # turn left
     multiple(values).each { |degree| rotate(-degree) }
   end
@@ -54,18 +52,23 @@ module Body
 
   def destination(steps)
     { :sin => location.x,
-      :cos => location.y }.map do |function, location|
-      radians  = (@heading - 180) * degree # flip heading 180°
-      offset   = steps * send(function, radians)
-      location + offset
+      :cos => location.y }.map do |function, coordinate|
+
+      heading  = @heading + 180.0
+      heading -= 360.0 if direction >= 360
+      heading *= degree
+      offset   = send(function, heading)
+
+      (offset * steps) + coordinate
     end
   end
 
   def face(coordinate)
-    x = coordinate.first - @location.x
-    y = coordinate.last - @location.y
+    coordinate[0] -= @location.x
+    coordinate[0] *= -1
+    coordinate[1] -= @location.y
 
-    @heading = Math.atan2(-x, y) / degree
+    @heading = Math.atan2(*coordinate) / degree
   end
 
   def goto(coordinate)
@@ -82,11 +85,14 @@ module Body
   end
 
   def xy(coordinate)
-    # coordinate (0, 0) is the lower left corner of the screen
+    # coordinate [0, 0] is the lower left corner of the screen
     @penstatus = @penstatus.tap do
       penup
 
-      goto [coordinate.first, App.size.height - coordinate.last]
+      coordinate[1] *= -1
+      coordinate[1] += App.size.height
+
+      goto coordinate
     end
   end
 

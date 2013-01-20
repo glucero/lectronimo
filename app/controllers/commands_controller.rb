@@ -4,10 +4,10 @@ class CommandsController < UIViewController
 
   extend IB
 
-  outlet :command_picker, UIPickerView
-  outlet :command_text, UILabel
-  outlet :aliases_text, UILabel
-  outlet :usage_text, UILabel
+  outlet :command_picker,   UIPickerView
+  outlet :command_text,     UILabel
+  outlet :aliases_text,     UILabel
+  outlet :usage_text,       UILabel
   outlet :description_text, UILabel
 
   def numberOfComponentsInPickerView(pickerView)
@@ -20,11 +20,15 @@ class CommandsController < UIViewController
 
   def set_command(command)
     command_text.text = command[:name].upcase
-    aliases_text.text = command[:name]
 
-    if command[:alias]
-      aliases_text.text.concat ", #{command[:alias].upcase}, #{command[:alias]}"
-    end
+    aliases_text.text = [].tap do |text|
+      text << command[:name]
+
+      if command[:alias]
+        text << command[:alias].upcase
+        text << command[:alias]
+      end
+    end.join(', ')
 
     usage_text.text = command[:examples].join("\n")
     description_text.text = command[:description]

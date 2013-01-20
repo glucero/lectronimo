@@ -14,10 +14,12 @@ module RightBrain
 
   def start_path(origin)
     if pendown?
-      path = UIBezierPath.alloc.init
-      path.lineWidth = @pensize
+      @paths << { :color => UIColor.alloc.initWithRed(@pencolor[:red].to_f / 255,
+                                                      green: @pencolor[:green].to_f / 255,
+                                                      blue:  @pencolor[:blue].to_f / 255,
+                                                      alpha: 1.0),
 
-      @paths.push({ :color => current_pencolor, :line  => path })
+                  :line  => UIBezierPath.alloc.init.tap { |b| b.lineWidth = @pensize } }
     end
 
     path_to origin
@@ -36,13 +38,6 @@ module RightBrain
     @paths.clear
   end
 
-  def current_pencolor
-    UIColor.alloc.initWithRed(@pencolor[:red].to_f / 255,
-                              green:@pencolor[:green].to_f / 255,
-                              blue:@pencolor[:blue].to_f / 255,
-                              alpha:1.0)
-  end
-
   def pendown
     @penstatus = true
   end
@@ -56,25 +51,19 @@ module RightBrain
   end
 
   def penup?
-    not pendown?
+    @penstatus
   end
 
   def pensize(value)
-    size = single(value)
-
-    @pensize = size
+    @pensize = single(value)
   end
 
   def pencolor(value)
-    color = single(value)
-
-    @pencolor = Colors[color]
+    @pencolor = Colors[single value]
   end
 
   def randompencolor
-    color = Colors.keys[rand(Colors.keys.size)]
-
-    pencolor color
+    pencolor Colors.keys.sample
   end
 
 end

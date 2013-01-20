@@ -67,19 +67,15 @@ module LeftBrain
   end
 
   def hypotenuse(values)
-    Math.hypot *multiple(values)
+    Math.hypot *multiple(values)[0..1]
   end
 
   def random(value)
-    rand(single(value)) + 1
+    rand(single value) + 1
   end
 
   def degree
-    Math::PI / 180
-  end
-
-  def radian
-    Math::PI * 2
+    pi / 180
   end
 
   def pi
@@ -94,45 +90,28 @@ module LeftBrain
     Math::E
   end
 
-  def make(variable, value)
-    value = evaluate(value)
+  def bind(name, arguments, function)
+    @binding.reject! { |cmd| cmd[:name] == name }
+    @binding << { :name => name,
+                  :arg  => arguments,
+                  :call => function }
+  end
 
-    @binding.reject! { |c| c[:name].eql? variable }
-    @binding.push({
-      :name => variable,
-      :arg  => 0,
-      :call => ->(*call) { value }
-    })
+  def make(variable, value)
+    value    = evaluate(value)
+    function = ->(*arguments) { value }
+
+    bind(variable, 0, function)
   end
 
   def repeat(iterations, commands)
     iterations = evaluate(iterations).to_i
-
-    iterations.times do
-      Marshal.load(Marshal.dump(commands)).tap do |commands|
-        execute commands
-      end
-    end
-  end
-
-  def command(command, variables, commands)
-    @binding.reject! { |c| c[:name].eql? command }
-    @binding.push({
-      :name => command,
-      :arg  => variables.count,
-      :call => ->(*arguments) do
-        Marshal.load(Marshal.dump(commands)).tap do |commands|
-          commands.map { |c| substitute(c, variables, arguments) }.tap do |commands|
-            execute commands
-          end
-        end
-      end
-    })
+    iterations.times { execute Marshal.load(Marshal.dump commands) }
   end
 
   def substitute(command, variables, arguments)
     if command.is_a? Array
-      command.map { |c| substitute(c, variables, arguments) }
+      command.map { |cmd| substitute(cmd, variables, arguments) }
     else
       if index = variables.find_index(command)
         arguments[index]
@@ -142,8 +121,18 @@ module LeftBrain
     end
   end
 
+  def command(command, variables, commands)
+    function = ->(*arguments) do
+      execute Marshal.load(Marshal.dump commands).map do |command|
+        substitute(command, variables, arguments)
+      end
+    end
+
+    bind(command, variables.count, function)
+  end
+
   def if(test, success)
-    execute(success) if evaluate(test)
+    evaluate(test) and execute(success)
   end
 
   def ifelse(test, success, failure)

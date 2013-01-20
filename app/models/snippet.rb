@@ -20,19 +20,17 @@ class Snippet < MotionData::ManagedObject
 
   def self.create_defaults
     Defaults.each do |default|
-      unless Snippet.locate(default[:snippet_id])
-        Snippet.create(default)
-      end
+      Snippet.create(default) unless Snippet.locate(default[:snippet_id])
     end
   end
 
-  def self.locate(id)
-    Snippet.all.find { |s| s.snippet_id.eql? id }
+  def self.locate(id_or_name)
+    Snippet.all.find { |s| s.snippet_id == id_or_name || s.title == id_or_name }
   end
 
   def self.create(attributes)
     if snippet = Snippet.locate(attributes[:snippet_id])
-      snippet.title = attributes[:title]
+      snippet.title   = attributes[:title]
       snippet.content = attributes[:content]
     else
       attributes[:snippet_id] = Snippet.next_snippet_id

@@ -1,38 +1,41 @@
 class Lectronimo
 
-  include Vocabulary
-  include Spectrum
-
-  include Body
-  include LeftBrain
-  include RightBrain
+  include Vocabulary,
+          Spectrum,
+          Body,
+          LeftBrain,
+          RightBrain
 
   def initialize
-    @paths   = Array.new
-    @binding = Array.new # user created commands and variable container
+    @paths   = []
+    @binding = [] # user created commands and variable container
 
     Commands.each do |command|
-      command[:call] = ->(*call) do
-        send(command[:name], *call)
+      command[:call] = ->(*arguments) do
+        send(command[:name], *arguments)
       end
     end
 
     # set lectronimo's defaults
     start_path App.center
-    pencolor :black
-    pensize 1.0
-    heading 0.0
+    pencolor   :black
+    pensize    1.0
+    heading    0.0
     pendown
     show
   end
 
+  def binding
+    @binding
+  end
+
   def lookup(symbol)
-    Commands.find { |c| c[:name].eql?(symbol) || c[:alias].eql?(symbol) } or
-    @binding.find { |c| c[:name].eql?(symbol) }
+    Commands.find { |cmd| cmd[:name] == symbol || cmd[:alias] == symbol } or
+    @binding.find { |cmd| cmd[:name] == symbol }
   end
 
   def run(snippet)
-    execute Parser.read(snippet)
+    execute Parser.read(snippet).commands
   rescue => error
     Popup.initWithMessage(error.message, title: error.class)
   end
@@ -46,38 +49,28 @@ class Lectronimo
   end
 
   def execute(commands)
-    Array.new.tap do |result|
+    [].tap do |result|
       if commands.is_a? Array
         until commands.empty?
-          result.push evaluate(commands)
+          result << evaluate(commands)
         end
       else
-        result.push evaluate(commands)
+        result << evaluate(commands)
       end
     end
   end
 
-  def nested(commands)
-    if commands.is_a? Array
-      commands.shift
-    else
-      commands
-    end
+  def unnest(commands)
+    commands.is_a?(Array)? commands.shift : commands
   end
 
   def evaluate(commands)
-    token = nested(commands)
+    token = unnest(commands)
 
     if function = lookup(token)
-      arguments = if function[:store]
-                    function[:arg].times.map do
-                      nested(commands)
-                    end
-                  else
-                    function[:arg].times.map do
-                      evaluate(commands)
-                    end
-                  end
+      arguments = function[:arg].times.map do
+        function[:store] ? unnest(commands) : evaluate(commands)
+      end
 
       function[:call][*arguments]
     else

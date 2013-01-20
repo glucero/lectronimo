@@ -2,14 +2,15 @@ class EditSnippetController < UITableViewController
 
   extend IB
 
-  outlet :title, UITextField
+  outlet :title,   UITextField
   outlet :content, UITextView
 
-  attr_accessor :delegate, :snippet
+  attr_accessor :delegate,
+                :snippet
 
   def viewDidLoad
-    unless snippet.nil?
-      title.text = snippet.title
+    if snippet
+      title.text   = snippet.title
       content.text = snippet.content
     end
   end
@@ -22,10 +23,7 @@ class EditSnippetController < UITableViewController
     MotionData::Context.withCurrent(MotionData::Context.context) do
 
       attributes = { :title => title.text, :content => content.text }
-
-      unless snippet.nil?
-        attributes[:snippet_id] = snippet.snippet_id
-      end
+      attributes[:snippet_id] = snippet.snippet_id if snippet
 
       Snippet.create attributes
       Snippet.save

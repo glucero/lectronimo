@@ -224,12 +224,6 @@ module Vocabulary
       :examples    => ['DEGREE', 'DEG'],
       :description => "Returns PI divided by 180." },
 
-    { :name        => :radian,
-      :alias       => :rad,
-      :arg         => 0,
-      :examples    => ['RADIAN', 'RAD'],
-      :description => "Returns PI multiplied by 2." },
-
     { :name        => :random,
       :alias       => :rand,
       :arg         => 1,

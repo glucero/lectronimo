@@ -3,10 +3,9 @@ class CanvasController < UIViewController
   extend IB
 
   outlet :command, UITextField
-  outlet :editor, UIButton
-  outlet :back, UIButton
-
-  outlet :icon, UIImageView
+  outlet :editor,  UIButton
+  outlet :back,    UIButton
+  outlet :icon,    UIImageView
 
   def viewWillAppear(animated)
     super(animated).tap do
@@ -26,8 +25,8 @@ class CanvasController < UIViewController
 
   def startEditing
     editor.hidden = true
-    back.hidden = true
-    icon.hidden = true
+    back.hidden   = true
+    icon.hidden   = true
 
     command.becomeFirstResponder
   end
@@ -52,7 +51,7 @@ class CanvasController < UIViewController
 
   def doneEditing(sender)
     editor.hidden = false
-    back.hidden = false
+    back.hidden   = false
 
     # run the commands
     Dispatch::Queue.main.async do

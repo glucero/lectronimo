@@ -1,6 +1,8 @@
 class App
 
-  attr_reader :screen, :storyboard, :lectronimo
+  attr_reader :screen,
+              :storyboard,
+              :lectronimo
 
   def self.delegate
     UIApplication.sharedApplication.delegate
@@ -23,7 +25,7 @@ class App
   end
 
   def self.center
-    CGPoint.new(App.size.width / 2, App.size.height / 2)
+    CGPoint.new *App.size.to_a.map { |i| i / 2 }
   end
 
   def application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -32,10 +34,9 @@ class App
     Snippet.setup_core_data
     Snippet.create_defaults
 
-    @screen = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @lectronimo = Lectronimo.new
 
-    # if App.size.eql? CGSize.new(320, 480)
+    # if App.size == CGSize.new(320, 480)
       # @storyboard = UIStoryboard.storyboardWithName('iPhone4StoryBoard', bundle: nil)
     # else
       # @storyboard = UIStoryboard.storyboardWithName('iPhone5StoryBoard', bundle: nil)
@@ -43,6 +44,7 @@ class App
 
     @storyboard = UIStoryboard.storyboardWithName("Storyboard", bundle: nil)
 
+    @screen = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @screen.rootViewController = @storyboard.instantiateInitialViewController
     @screen.makeKeyAndVisible
   end

@@ -1,10 +1,10 @@
 class Parser
 
   def self.read(snippet)
-    parser = Parser.new(snippet)
-    parser.parse
-    parser.organize
-    parser.commands
+    Parser.new(snippet).tap do |parser|
+      parser.parse
+      parser.organize
+    end
   end
 
   def initialize(snippet)
@@ -18,10 +18,10 @@ class Parser
   def parse
     @tokens ||= @snippet.split(/(!?\[)|(!?\])|\s/).map do |token|
       unless token.empty?
-        if token[/#{token.to_f}|#{token.to_i}/]
+        if token[/[0-9]+(\.[0-9]+)?/]
           token.to_f
         else
-          token.to_s.downcase.to_sym
+          token.downcase.to_sym
         end
       end
     end.compact
@@ -31,32 +31,30 @@ class Parser
     until @tokens.empty?
       token = @tokens.shift
 
-      case token
-      when :'['
-        commands.push nested(@tokens)
+      if token == :'['
+        commands << nested(@tokens)
       else
-        commands.push token
+        commands << token
       end
     end
   end
 
   def nested(stack, delimiter = :open)
-    Array.new.tap do |tokens|
+    [].tap do |tokens|
 
-      until delimiter.eql? :close
-
+      loop do
         if stack.empty?
-          delimiter = :close
+          break
         else
           token = stack.shift
 
           case token
           when :'['
-            tokens.push nested(stack)
+            tokens << nested(stack)
           when :']'
-            delimiter = :close
+            break
           else
-            tokens.push(token)
+            tokens << token
           end
         end
       end
