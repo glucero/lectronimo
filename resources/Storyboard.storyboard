@@ -704,11 +704,11 @@ AAAAAAAAAAAAAAAAaaaaaaaaaa...."</string>
                     </view>
                     <navigationItem key="navigationItem" id="7AK-bN-TEB"/>
                     <connections>
-                        <outlet property="aliases_text" destination="omg-J1-Z5V" id="xXf-8R-5d2"/>
-                        <outlet property="command_picker" destination="3Eu-25-aYn" id="q4t-sX-ZPR"/>
-                        <outlet property="command_text" destination="zJt-bw-4jr" id="hy2-8g-jN7"/>
-                        <outlet property="description_text" destination="0sb-XB-Gzv" id="T8N-cV-Mgk"/>
-                        <outlet property="usage_text" destination="DFx-04-YYK" id="G6i-lt-DJe"/>
+                        <outlet property="aliases" destination="omg-J1-Z5V" id="uNV-bx-UNr"/>
+                        <outlet property="commands" destination="3Eu-25-aYn" id="BZx-ow-Nvs"/>
+                        <outlet property="description" destination="0sb-XB-Gzv" id="xdL-mM-m4Q"/>
+                        <outlet property="name" destination="zJt-bw-4jr" id="7Yj-0a-TS8"/>
+                        <outlet property="usage" destination="DFx-04-YYK" id="pn3-Li-qIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bad-3E-mIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1641,13 +1641,13 @@ The REPEAT command needs two things from you: the number of times you want Lectr
                                         <rect key="frame" x="20" y="20" width="280" height="256"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.90327785329999999" green="0.90327785329999999" blue="0.90327785329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <mutableString key="text">The COMMAND command is used to create your own commands. It's basically like the MAKE command but assigns a box of commands instead of values to a name.
+                                        <string key="text">The COMMAND command is used to create your own commands. It's basically like the MAKE command but assigns a box of commands instead of values to a name.
 
 The COMMAND command requires two things:
   1. a box of arguments that it uses for variables. (if your command has no arguments, you must give it an empty box)
   2. a box of commands to execute.
 
-Let's make a square command! Every square needs 2 things: 4 identical sides and 4 identical angles. The only difference one square has from another is the length of the sides. We'll call that number "SIZE".</mutableString>
+Let's make a square command! Every square needs 2 things: 4 identical sides and 4 identical angles. The only difference one square has from another is the length of the sides. We'll call that number "SIZE".</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -2036,7 +2036,6 @@ Because of this, I've removed the BITE and POOP commands... just in case.</strin
                 <relationship kind="action" name="backButtonAction"/>
                 <relationship kind="action" name="canBecomeFirstResponder"/>
                 <relationship kind="action" name="doneEditing:"/>
-                <relationship kind="action" name="shouldAutorotateToInterfaceOrientation:"/>
                 <relationship kind="action" name="startEditing"/>
                 <relationship kind="action" name="textFieldDidBeginEditing:"/>
                 <relationship kind="action" name="textFieldDidEndEditing:"/>
@@ -2057,11 +2056,11 @@ Because of this, I've removed the BITE and POOP commands... just in case.</strin
                 <relationship kind="action" name="numberOfComponentsInPickerView:"/>
                 <relationship kind="action" name="set_command:"/>
                 <relationship kind="action" name="viewDidLoad"/>
-                <relationship kind="outlet" name="aliases_text" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="command_picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="command_text" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="description_text" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="usage_text" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="aliases" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="commands" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="usage" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="EditSnippetController" superclassName="UITableViewController">
@@ -2069,7 +2068,6 @@ Because of this, I've removed the BITE and POOP commands... just in case.</strin
             <relationships>
                 <relationship kind="action" name="canBecomeFirstResponder"/>
                 <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="shouldAutorotateToInterfaceOrientation:"/>
                 <relationship kind="action" name="viewDidLoad"/>
                 <relationship kind="action" name="viewDidUnload"/>
                 <relationship kind="outlet" name="content" candidateClass="UITextView"/>
