@@ -7,9 +7,9 @@ class Lectronimo
           RightBrain
 
   def initialize
-    # set lectronimo's defaults
     Commands.each { |command| bind command } # learn the default commands
 
+    # set lectronimo's defaults
     start    App.center
     pencolor :black
     pensize  1.0

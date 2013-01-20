@@ -4,11 +4,11 @@ class CommandsController < UIViewController
 
   extend IB
 
-  outlet :command_picker,   UIPickerView
-  outlet :command_text,     UILabel
-  outlet :aliases_text,     UILabel
-  outlet :usage_text,       UILabel
-  outlet :description_text, UILabel
+  outlet :commands,    UIPickerView
+  outlet :name,        UILabel
+  outlet :aliases,     UILabel
+  outlet :usage,       UILabel
+  outlet :description, UILabel
 
   def numberOfComponentsInPickerView(pickerView)
     1
@@ -19,9 +19,9 @@ class CommandsController < UIViewController
   end
 
   def set_command(command)
-    command_text.text = command[:name].upcase
+    name.text = command[:name].upcase
 
-    aliases_text.text = [].tap do |text|
+    aliases.text = [].tap do |text|
       text << command[:name]
 
       if command[:alias]
@@ -30,8 +30,8 @@ class CommandsController < UIViewController
       end
     end.join(', ')
 
-    usage_text.text = command[:examples].join("\n")
-    description_text.text = command[:description]
+    usage.text = command[:examples].join("\n")
+    description.text = command[:description]
   end
 
   def pickerView(pickerView, numberOfRowsInComponent: component)

@@ -91,17 +91,18 @@ module LeftBrain
   end
 
   def make(variable, value)
-    value     = evaluate(value)
-    function  = { :name => variable,
-                  :args => 0,
-                  :function => ->(*arguments) { value } }
+    value    = evaluate(value)
+    function = { :name => variable,
+                 :args => 0,
+                 :function => ->(*arguments) { value } }
 
     bind function
   end
 
   def repeat(iterations, commands)
-    iterations = evaluate(iterations).to_i
-    iterations.times { execute Marshal.load(Marshal.dump commands) }
+    evaluate(iterations).to_i.times do
+      execute Marshal.load(Marshal.dump commands)
+    end
   end
 
   def substitute(command, variables, arguments)
