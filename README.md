@@ -13,10 +13,6 @@
     bundle install
     rake -T
 
-### support this project
-
-  lectronimo will be available on the App Store soon!
-
 ### detailed usage instructions are built into the compiled iOS app
 
 ### available commands
