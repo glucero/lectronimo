@@ -1,7 +1,5 @@
 # lectronimo
 
-  an educational iOS app that teaches the basics of programming by drawing shapes, spirals and other designs
-
 <img src="https://raw.github.com/glucero/lectronimo/master/resources/lectronimo_main.png" alt="lectronimo" height="200" width="320" >
 
 ### building your own lectronimo
@@ -30,7 +28,7 @@
     hide    subtract       tangent    radian
     home    multiply       arcsine    random
 
-### lectronimo's programming language is based on LOGO (a LISP-like language without the parentheses):
+### lectronimo's programming language is based on LOGO 
 
   all commands are in prefix notation
 
