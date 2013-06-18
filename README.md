@@ -84,7 +84,9 @@ using the new pythagoras-tree command:
 
 ![pythagoras-tree](https://raw.github.com/glucero/lectronimo/master/assets/pythagoras-tree.png)
 
-*** license
+***
+
+### license
 
 MIT License
 
